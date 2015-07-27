@@ -5,6 +5,9 @@
     "composer-plugin-api": "^1.0"
   },
   "extra": {
-    "class": "Jacere\\ComposerAutoloadPlugin"
+    "class": "Jacere\\Composer\\AutoloadPlugin"
+  },
+  "autoload": {
+    "psr-4": {"Jacere\\Composer\\": ""}
   }
 }

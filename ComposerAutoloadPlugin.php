@@ -1,6 +1,6 @@
 <?php
 
-namespace Jacere;
+namespace Jacere\Composer;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -9,7 +9,7 @@ use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PostAutoloadDumpEvent;
 
-class ComposerAutoloadPlugin implements PluginInterface, EventSubscriberInterface {
+class AutoloadPlugin implements PluginInterface, EventSubscriberInterface {
 
 	protected $composer;
 	protected $io;
