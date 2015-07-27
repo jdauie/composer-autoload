@@ -3,6 +3,7 @@
 namespace Jacere\Composer;
 
 use Composer\Composer;
+use Composer\Script\Event;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
@@ -21,15 +22,12 @@ class AutoloadPlugin implements PluginInterface, EventSubscriberInterface {
 	public static function getSubscribedEvents() {
 		return [
 			'post-autoload-dump' => [
-				['onPluginCommand', 0],
+				['onPostAutoloadDump', 0],
 			],
 		];
 	}
 
-	public function onPluginCommand(CommandEvent $event) {
-		throw new \Exception('qwer');
-		if ($event->getCommandName() === 'post-autoload-dump') {
-			throw new \Exception('asdf');
-		}
+	public function onPostAutoloadDump(Event $event) {
+		return false;
 	}
 }
