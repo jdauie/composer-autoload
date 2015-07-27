@@ -7,7 +7,6 @@ use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PluginEvents;
-use Composer\Plugin\PostAutoloadDumpEvent;
 
 class AutoloadPlugin implements PluginInterface, EventSubscriberInterface {
 
@@ -21,14 +20,15 @@ class AutoloadPlugin implements PluginInterface, EventSubscriberInterface {
 
 	public static function getSubscribedEvents() {
 		return [
-			PluginEvents::POST_AUTOLOAD_DUMP => [
-				['onPostAutoloadDump', 0],
+			PluginEvents::COMMAND => [
+				['onPluginCommand', 0],
 			],
 		];
 	}
 
-	public function onPostAutoloadDump(PostAutoloadDumpEvent $event)
-	{
-		//
+	public function onPluginCommand(CommandEvent $event) {
+		if ($event->getCommandName() === 'post-autoload-dump') {
+			throw new \Exception('asdf');
+		}
 	}
 }
