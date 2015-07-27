@@ -28,6 +28,7 @@ class AutoloadPlugin implements PluginInterface, EventSubscriberInterface {
 	}
 
 	public function onPostAutoloadDump(Event $event) {
+		throw new \Exception(json_encode($event));
 		return false;
 	}
 }
