@@ -8,6 +8,7 @@
     "class": "Jacere\\Composer\\AutoloadPlugin"
   },
   "autoload": {
-    "psr-4": {"Jacere\\Composer\\": ""}
+    "psr-4": {"Jacere\\Autoload\\": "Autoload/"},
+    "psr-4": {"Jacere\\Composer\\": "Composer/"}
   }
 }
